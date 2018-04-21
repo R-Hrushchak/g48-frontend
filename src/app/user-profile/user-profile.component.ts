@@ -34,19 +34,18 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateEncryptionKey() {
-    //  this.cryptoService.keyPairGenerate()
-    //    .then(keyPair => this.parseKeyPair(keyPair));
+    this.cryptoService.keyPairGenerate()
+      .then(keyPair => this.parseKeyPair(keyPair));
   }
 
   parseKeyPair(keyPair: CryptoKeyPair) {
     crypto.subtle.exportKey('jwk', keyPair.publicKey)
       .then(key => this.publicKeyService.createEncryptionKey({bytes: JSON.stringify(key)}));
 
-    // this.cryptoService.getKeyAES(keyPair.privateKey, this.encryptionPassword).then(aesKey => function () {
-    //  this.cryptoService.
-    //  crypto.subtle.exportKey('jwk', )
-    //  .then(key => this.privateKeyService.createEncryptionKey({bytes: JSON.stringify(key)}));
-    //  });
+    this.cryptoService.protectKey(keyPair.privateKey, this.encryptionPassword)
+      .then(function (protectedPrivateKey) {
+        console.log(protectedPrivateKey);
+      });
   }
 
   ngOnInit() {

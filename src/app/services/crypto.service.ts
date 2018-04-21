@@ -30,10 +30,12 @@ export class CryptoService {
     return buf;
   }
 
-  getKeyAES(key: CryptoKey, password: String): PromiseLike<CryptoKey> {
+  getKeyAES(key: CryptoKey, password: String) {
+    const stringToArrayBuffer = this.str2ab;
+
     return window.crypto.subtle.importKey(
       'raw',
-      this.str2ab(password),
+      stringToArrayBuffer(password),
       {
         name: 'PBKDF2'
       },
@@ -54,6 +56,30 @@ export class CryptoService {
           ['encrypt', 'decrypt']
         );
       });
+  }
+
+  protectKey(privateKey: CryptoKey, password) {
+    const stringToArrayBuffer = this.str2ab;
+    const arrayBufferToString = this.ab2str;
+
+    return this.getKeyAES(privateKey, password).then(function (aesKey) {
+      // this.cryptoService.crypto.subtle.exportKey('jwk', aesKey)
+
+      return crypto.subtle.exportKey('jwk', privateKey)
+        .then(function (exportedPrivateKey) {
+          window.crypto.subtle.encrypt(
+            {
+              name: 'AES-CBC',
+              iv: window.crypto.getRandomValues(new Uint8Array(16)),
+            },
+            aesKey,
+            stringToArrayBuffer(JSON.stringify(exportedPrivateKey))
+          )
+            .then(function (encrypted) {
+              return arrayBufferToString(encrypted);
+            });
+        });
+    });
   }
 
 }
