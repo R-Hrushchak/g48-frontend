@@ -13,6 +13,7 @@ import { FileService } from './services/file.service';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FilesIncomingComponent } from './files-incoming/files-incoming.component';
 import { FilesOutgoingComponent } from './files-outgoing/files-outgoing.component';
+import { AuthHttpService } from './services/auth-http.service';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { FilesOutgoingComponent } from './files-outgoing/files-outgoing.componen
     FileDropModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [UserService, FileService],
+  providers: [AuthHttpService, UserService, FileService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
