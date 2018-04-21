@@ -56,4 +56,28 @@ export class CryptoService {
       });
   }
 
+  protectKey(privateKey: CryptoKey, password) {
+    const stringToArrayBuffer = this.str2ab;
+    const arrayBufferToString = this.ab2str;
+
+    return this.getKeyAES(privateKey, password).then(function (aesKey) {
+      // this.cryptoService.crypto.subtle.exportKey('jwk', aesKey)
+
+      return crypto.subtle.exportKey('jwk', privateKey)
+        .then(function (exportedPrivateKey) {
+          return window.crypto.subtle.encrypt(
+            {
+              name: 'AES-CBC',
+              iv: window.crypto.getRandomValues(new Uint8Array(16)),
+            },
+            aesKey,
+            stringToArrayBuffer(JSON.stringify(exportedPrivateKey))
+          )
+            .then(function (encrypted) {
+              return arrayBufferToString(encrypted).valueOf();
+            });
+        });
+    });
+  }
+
 }
