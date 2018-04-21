@@ -19,6 +19,9 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import {LandingPageComponent} from './landing-page/landing-page.component';
+import { CryptoService } from './services/crypto.service';
+import { PublicKeyService } from './services/public-key.service';
+import { PrivateKeyService } from './services/private-key.service';
 
 
 @NgModule({
@@ -38,7 +41,7 @@ import {LandingPageComponent} from './landing-page/landing-page.component';
     ReactiveFormsModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthHttpService, AuthService, AuthGuardService, UserService, FileService],
+  providers: [AuthHttpService, AuthService, AuthGuardService, CryptoService, PublicKeyService, PrivateKeyService, UserService, FileService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
