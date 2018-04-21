@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,7 +11,22 @@ import { UserService } from '../services/user.service';
 
 export class UserProfileComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) {
+  userForm: FormGroup;
+
+  constructor(private userService: UserService, private router: Router, private fb: FormBuilder) {
+    this.createForm();
+  }
+
+  createForm() {
+    this.userForm = this.fb.group({
+      email: null,
+      password: null
+    });
+  }
+
+  updateEncryptionKey(){
+    console.log('Generating new keys..');
+    
   }
 
   ngOnInit() {

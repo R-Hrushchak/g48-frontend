@@ -1,6 +1,29 @@
 <h6>Home -> Edit profile</h6>
 <h1>Edit profile</h1>
 
-<div>
-  <p>some user data + generate private\public keys</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <form [formGroup]="userForm" action="#" method="post" autocomplete="off" class="clear">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                 placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+    <div class="col-sm">
+      <div class="form-group">
+        <label for="updateEncryptionKey">Encryption status</label>
+        <button (click)="updateEncryptionKey()" class="form-control" id="updateEncryptionKey">Update encryption key
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

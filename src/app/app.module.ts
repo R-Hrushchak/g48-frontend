@@ -14,6 +14,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FilesIncomingComponent } from './files-incoming/files-incoming.component';
 import { FilesOutgoingComponent } from './files-outgoing/files-outgoing.component';
 import { AuthHttpService } from './services/auth-http.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { AuthHttpService } from './services/auth-http.service';
     HttpModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    FileDropModule
+    FileDropModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [AuthHttpService, UserService, FileService],
