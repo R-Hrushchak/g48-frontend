@@ -5,29 +5,41 @@ import { FilesOutgoingComponent } from './files-outgoing/files-outgoing.componen
 import { FilesIncomingComponent } from './files-incoming/files-incoming.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { LoginComponent } from './login/login.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { MainComponent } from './main/main.component';
 
 const appRoutes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'dashboard',
+    component: LandingPageComponent
   },
   {
-    path: 'profile',
-    component: UserProfileComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'files-incoming',
-    component: FilesIncomingComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'files-outgoing',
-    component: FilesOutgoingComponent,
-    canActivate: [AuthGuardService]
+    path: 'app',
+    component: MainComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'profile',
+        component: UserProfileComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'files-incoming',
+        component: FilesIncomingComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'files-outgoing',
+        component: FilesOutgoingComponent,
+        canActivate: [AuthGuardService]
+      }
+    ]
   },
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  {path: '**', component: UserProfileComponent}
+  {path: '**', component: LandingPageComponent}
 ];
 
 @NgModule({

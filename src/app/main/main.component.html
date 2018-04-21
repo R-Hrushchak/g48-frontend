@@ -6,12 +6,12 @@
 
     <navlinks>
       <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav">
-        <li *ngIf="!isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/login']">
+        <li *ngIf="!isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/app/login']">
           <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
             <span class="clearfix d-none d-sm-inline-block">Sign in</span>
           </a>
         </li>
-        <li *ngIf="isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/profile']">
+        <li *ngIf="isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/app/profile']">
           <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
             <span class="clearfix d-none d-sm-inline-block">Account</span>
           </a>
@@ -44,19 +44,19 @@
           <hr class="mt-5">
           <!--/. Logo -->
           <li *ngIf="isLoggedIn()" class="a-nav-link">
-            <a class="a-nav-link" href="#" [routerLink]="['/profile']">
+            <a class="a-nav-link" href="#" [routerLink]="['/app/profile']">
               <i class="fa fa-home" aria-hidden="true"></i> Home</a>
           </li>
           <li *ngIf="isLoggedIn()">
-            <a class="a-nav-link" href="#" [routerLink]="['/profile']">
+            <a class="a-nav-link" href="#" [routerLink]="['/app/profile']">
               <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
           </li>
           <li *ngIf="isLoggedIn()">
-            <a class="a-nav-link" href="#" [routerLink]="['/files-incoming']">
+            <a class="a-nav-link" href="#" [routerLink]="['/app/files-incoming']">
               <i class="fa fa-envelope-open-o" aria-hidden="true"></i> Received data</a>
           </li>
           <li *ngIf="isLoggedIn()">
-            <a class="a-nav-link" href="#" [routerLink]="['/files-outgoing']">
+            <a class="a-nav-link" href="#" [routerLink]="['/app/files-outgoing']">
               <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Sent data</a>
           </li>
         </ul>

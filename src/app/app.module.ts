@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -21,11 +20,16 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { CryptoService } from './services/crypto.service';
 import { PublicKeyService } from './services/public-key.service';
 import { PrivateKeyService } from './services/private-key.service';
+import { MainComponent } from './main/main.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AppComponent } from './app.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent, UserProfileComponent, FilesIncomingComponent, FilesOutgoingComponent
+    AppComponent, MainComponent, LandingPageComponent,
+    LoginComponent, UserProfileComponent,
+    FilesIncomingComponent, FilesOutgoingComponent
   ],
   imports: [
     NgbModule.forRoot(),
