@@ -20,7 +20,7 @@
     <div class="col-sm">
       <div class="form-group">
         <label for="encryptionPassword">Encryption password</label>
-        <input [ngModel]="encryptionPassword" type="password" class="form-control" id="encryptionPassword" placeholder="Password">
+        <input [(ngModel)]="encryptionPassword" type="password" class="form-control" id="encryptionPassword" placeholder="Password">
         <button (click)="updateEncryptionKey()" class="form-control" id="updateEncryptionKey">Update encryption key
         </button>
       </div>

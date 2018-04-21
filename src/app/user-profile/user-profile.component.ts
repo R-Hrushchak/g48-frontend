@@ -5,7 +5,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { CryptoService } from '../services/crypto.service';
 import { PrivateKeyService } from '../services/private-key.service';
 import { PublicKeyService } from '../services/public-key.service';
-import { EncryptionKey } from '../entities/encryption-key';
 
 @Component({
   selector: 'app-user-profile',
@@ -35,28 +34,23 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateEncryptionKey() {
-    this.cryptoService.keyPairGenerate()
-      .then(keyPair => this.parseKeyPair(keyPair));
+    //  this.cryptoService.keyPairGenerate()
+    //    .then(keyPair => this.parseKeyPair(keyPair));
   }
 
   parseKeyPair(keyPair: CryptoKeyPair) {
     crypto.subtle.exportKey('jwk', keyPair.publicKey)
-      .then(result => this.publicKeyService.createEncryptionKey(this.preparePublicKey(result)));
+      .then(key => this.publicKeyService.createEncryptionKey({bytes: JSON.stringify(key)}));
 
-    crypto.subtle.exportKey('jwk', keyPair.privateKey)
-      .then(result => this.privateKeyService.createEncryptionKey(this.preparePrivateKey(result)));
-  }
-
-  preparePublicKey(key): EncryptionKey {
-    return {bytes: JSON.stringify(key)};
-  }
-
-  preparePrivateKey(key): EncryptionKey {
-    return {bytes: JSON.stringify(key)};
+    // this.cryptoService.getKeyAES(keyPair.privateKey, this.encryptionPassword).then(aesKey => function () {
+    //  this.cryptoService.
+    //  crypto.subtle.exportKey('jwk', )
+    //  .then(key => this.privateKeyService.createEncryptionKey({bytes: JSON.stringify(key)}));
+    //  });
   }
 
   ngOnInit() {
-
+    this.encryptionPassword = 'test';
   }
 
 }
