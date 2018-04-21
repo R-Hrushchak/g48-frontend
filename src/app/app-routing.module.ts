@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FilesOutgoingComponent } from './files-outgoing/files-outgoing.component';
 import { FilesIncomingComponent } from './files-incoming/files-incoming.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { LoginComponent } from './login/login.component';
 
@@ -26,7 +27,10 @@ const appRoutes: Routes = [
     component: FilesOutgoingComponent,
     canActivate: [AuthGuardService]
   },
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {
+    path: '',
+    component: LandingPageComponent
+  },
   {path: '**', component: UserProfileComponent}
 ];
 

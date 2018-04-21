@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         response => {
           localStorage.setItem('token', response.access_token);
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('profile');
         },
         error => {
           alert(error);

@@ -18,11 +18,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import {LandingPageComponent} from './landing-page/landing-page.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent, UserProfileComponent, FilesIncomingComponent, FilesOutgoingComponent
+    AppComponent, LoginComponent, UserProfileComponent, FilesIncomingComponent, FilesOutgoingComponent, LandingPageComponent
   ],
   imports: [
     NgbModule.forRoot(),
