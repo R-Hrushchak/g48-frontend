@@ -10,7 +10,7 @@ import { MainComponent } from './main/main.component';
 
 const appRoutes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: LandingPageComponent
   },
   {
@@ -38,7 +38,7 @@ const appRoutes: Routes = [
       }
     ]
   },
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: '', pathMatch: 'full'},
   {path: '**', component: LandingPageComponent}
 ];
 

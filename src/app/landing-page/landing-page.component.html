@@ -1,1 +1,82 @@
-<p>landing page</p>
+<mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg navbar-light white scrolling-navbar double-nav"
+            [containerInside]="false">
+
+  <navlinks>
+    <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav">
+      <li *ngIf="isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/app/login']">
+        <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
+          <span class="clearfix d-none d-sm-inline-block">Sign in</span>
+        </a>
+      </li>
+      <li *ngIf="isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/app/profile']">
+        <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
+          <span class="clearfix d-none d-sm-inline-block">Account</span>
+        </a>
+      </li>
+      <li *ngIf="isLoggedIn()" class="nav-item a-nav-link">
+        <a (click)="logout()" class="nav-link waves-light" mdbRippleRadius><i class="fa fa-sign-out"></i>
+          <span class="clearfix d-none d-sm-inline-block">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </navlinks>
+</mdb-navbar>
+
+
+<div class="jumbotron image text-center">
+  <h1>One-of-a-kind, <br> zero fees virtual broker</h1>
+  <form>
+    <button id="button" type="button" class="btn btn-primary mt-4">..............</button>
+  </form>
+</div>
+
+<!-- Icons Grid -->
+<section class="features-icons text-center testimonials bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div class="mb-5">
+            <img src="assets/images/money.svg" width="130" height="130">
+          </div>
+          <h3 class="mb-3">No fees</h3>
+          <p class="lead mb-0" style="line-height: normal;">You pay zero fees for all of your transactions</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+          <div class="mb-5">
+            <img src="assets/images/profits.svg" width="130" height="130">
+          </div>
+          <h3 class="mb-3">Smooth investments</h3>
+          <p class="lead mb-0" style="line-height: normal;">You choose how much money to invest</p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+          <div class="mb-5">
+            <img src="assets/images/presentation.svg" width="130" height="130">
+          </div>
+          <h3 class="mb-3">Stocks news</h3>
+          <p class="lead mb-0" style="line-height: normal;">Get the info easily about the stocks you invested into</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Container (About Section) -->
+<section class="testimonials">
+  <div id="about" class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <h3 class="mb-5">About company</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div class="col-sm-4 inner__center">
+        <i class="fa fa-free-code-camp logo" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</section>

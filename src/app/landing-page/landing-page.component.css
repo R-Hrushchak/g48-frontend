@@ -1,0 +1,48 @@
+.image {
+  background: linear-gradient(rgba(0, 0, 0, 0.61),
+                              rgba(0, 0, 0, 0.61)),
+              url('assets/images/back.jpg') no-repeat center center;
+  border: 0;
+  background-size: cover;
+}
+
+.jumbotron {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  padding: 250px 25px;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.features-icons .features-icons-item {
+  max-width: 20rem;
+}
+.features-icons .features-icons-item .features-icons-icon {
+  height: 7rem;
+}
+.features-icons .features-icons-item .features-icons-icon img {
+  font-size: 4.5rem;
+}
+.features-icons .features-icons-item:hover .features-icons-icon img {
+  font-size: 5rem;
+}
+
+.testimonials {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.testimonials .testimonial-item {
+  max-width: 18rem;
+}
+.testimonials .testimonial-item img {
+  max-width: 12rem;
+}
+
+.inner__center {
+  text-align: center;
+}
+
+.logo {
+    color: #3B9DFF;
+    font-size: 200px;
+}
