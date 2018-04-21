@@ -38,7 +38,7 @@ const appRoutes: Routes = [
       }
     ]
   },
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '', component: LandingPageComponent, pathMatch: 'full'},
   {path: '**', component: LandingPageComponent}
 ];
 

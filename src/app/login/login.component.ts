@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(username, password)
       .subscribe(
         response => {
-          localStorage.setItem('token', response.access_token);
-          this.router.navigateByUrl('profile');
+          localStorage.setItem('token', response.auth_token);
+          this.router.navigateByUrl('/app/profile');
         },
         error => {
           alert(error);

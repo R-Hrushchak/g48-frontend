@@ -18,6 +18,6 @@ export class MainComponent {
 
   logout(){
     this.authService.logout();
-    this.router.navigate(['login']);
+    this.router.navigate(['/app/login']);
   }
 }
