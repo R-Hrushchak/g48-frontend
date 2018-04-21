@@ -1,0 +1,23 @@
+#idWrapper {
+  margin-top: 30px;
+}
+
+#id {
+  width: 450px;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+#informationWrapper {
+  margin-top: 40px;
+}
+
+#information {
+  width: 450px;
+  height: 200px;
+  background-color: #f7f7f7;
+}
+
+#sendDataButton {
+  margin-top: 30px;
+}
