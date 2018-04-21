@@ -58,15 +58,6 @@
             </div>
           </li>
           <!--/. Logo -->
-          <!--Search Form-->
-          <li *ngIf="isLoggedIn()">
-            <form class="search-form" role="search">
-              <div class="form-group waves-light">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-            </form>
-          </li>
-          <!--/.Search Form-->
           <li *ngIf="isLoggedIn()"><a a href="#" [routerLink]="['/profile']">Home</a></li>
           <li *ngIf="isLoggedIn()"><a a href="#" [routerLink]="['/profile']">Profile</a>
             <ul>
