@@ -54,7 +54,7 @@ export class UserProfileComponent implements OnInit {
   preparePrivateKey(key): EncryptionKey {
     return {bytes: JSON.stringify(key)};
   }
-  
+
   ngOnInit() {
 
   }

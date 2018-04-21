@@ -2,6 +2,23 @@ main {
   margin-top: 120px !important;
 }
 
+.a-nav-link {
+  color: #9A9BAA;
+  cursor: pointer;
+}
+.a-nav-link:hover {
+  color: #756D6C;
+  background-color: rgba(214, 214, 214, 0.5);
+}
+.a-nav-link:active {
+  color: #756D6C;
+  background-color: rgba(214, 214, 214, 0.5);
+}
+.a-nav-link:focus {
+  color: #756D6C;
+  background-color: rgba(214, 214, 214, 0.5);
+}
+
 .side-nav {
   position: fixed;
   width: 240px;
@@ -13,7 +30,7 @@ main {
   height: calc(100% + 60px);
   height: -moz-calc(100%);
   color: #d8d8d8;
-  background-color: #f6f4ff;
+  background-color: #F5F3F6;
   z-index: 999;
   -webkit-backface-visibility: hidden;
   will-change: transform;

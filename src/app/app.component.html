@@ -1,42 +1,25 @@
 <!--Double navigation-->
 <header>
   <!-- Navbar -->
-  <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav"
+  <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg navbar-light white scrolling-navbar double-nav"
               [containerInside]="false">
-    <logo>
-      <!-- Breadcrumb-->
-      <div class="breadcrumbs breadcrumb-dn mr-auto">
-        <p>Material Design for Bootstrap</p>
-      </div>
-      <!--/. Breadcrumb-->
-    </logo>
 
     <navlinks>
       <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav">
-        <!--Search Form-->
-        <li>
-          <form class="search-form" role="search">
-            <div class="form-group waves-light">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-          </form>
+        <li *ngIf="!isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/login']">
+          <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
+            <span class="clearfix d-none d-sm-inline-block">Sign in</span>
+          </a>
         </li>
-        <!--/.Search Form-->
-        <li class="nav-item">
-          <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-envelope"></i> <span
-            class="clearfix d-none d-sm-inline-block">Contact</span></a>
+        <li *ngIf="isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/profile']">
+          <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
+            <span class="clearfix d-none d-sm-inline-block">Account</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-comments-o"></i> <span
-            class="clearfix d-none d-sm-inline-block">Support</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i> <span
-            class="clearfix d-none d-sm-inline-block">Account</span></a>
-        </li>
-        <li *ngIf="isLoggedIn()" class="nav-item">
-          <a (click)="logout()" class="nav-link waves-light" mdbRippleRadius><i class="fa fa-sign-out"></i> <span
-            class="clearfix d-none d-sm-inline-block">Logout</span></a>
+        <li *ngIf="isLoggedIn()" class="nav-item a-nav-link">
+          <a (click)="logout()" class="nav-link waves-light" mdbRippleRadius><i class="fa fa-sign-out"></i>
+            <span class="clearfix d-none d-sm-inline-block">Logout</span>
+          </a>
         </li>
       </ul>
     </navlinks>
@@ -49,7 +32,8 @@
 <main>
   <div class="container-fluid mt-5">
     <div class="row">
-      <div class="col-md-2 ">
+
+      <div *ngIf="isLoggedIn()" class="col-sm-2">
         <ul class="side-nav fixed">
           <!-- Logo -->
           <li>
@@ -57,22 +41,28 @@
               <a href="localhost:4200/"><img src="assets/images/logo.jpg" class="img-fluid flex-center"></a>
             </div>
           </li>
+          <hr class="mt-5">
           <!--/. Logo -->
-          <li *ngIf="isLoggedIn()"><a a href="#" [routerLink]="['/profile']">Home</a></li>
-          <li *ngIf="isLoggedIn()"><a a href="#" [routerLink]="['/profile']">Profile</a>
-            <ul>
-              <li><a href="#" [routerLink]="['/profile']">Edit profile</a></li>
-            </ul>
+          <li *ngIf="isLoggedIn()" class="a-nav-link">
+            <a class="a-nav-link" href="#" [routerLink]="['/profile']">
+              <i class="fa fa-home" aria-hidden="true"></i> Home</a>
           </li>
-          <li *ngIf="isLoggedIn()"><a href="#" [routerLink]="['/files-incoming']">File storage</a>
-            <ul>
-              <li><a href="#" [routerLink]="['/files-incoming']">Incoming files</a></li>
-              <li><a href="#" [routerLink]="['/files-outgoing']">Outgoing files</a></li>
-            </ul>
+          <li *ngIf="isLoggedIn()">
+            <a class="a-nav-link" href="#" [routerLink]="['/profile']">
+              <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+          </li>
+          <li *ngIf="isLoggedIn()">
+            <a class="a-nav-link" href="#" [routerLink]="['/files-incoming']">
+              <i class="fa fa-envelope-open-o" aria-hidden="true"></i> Received data</a>
+          </li>
+          <li *ngIf="isLoggedIn()">
+            <a class="a-nav-link" href="#" [routerLink]="['/files-outgoing']">
+              <i class="fa fa-paper-plane-o" aria-hidden="true"></i> Sent data</a>
           </li>
         </ul>
       </div>
-      <div class="col-md-10 ">
+
+      <div class="col-sm-10" style="padding-left: 0; padding-right: 0;">
         <div class="container-fluid">
           <!-- Content here -->
           <div class="dashboard">
@@ -81,6 +71,44 @@
         </div>
 
         <!--Footer-->
+        <footer *ngIf="isLoggedIn()" class="page-footer blue center-on-small-only">
+
+          <!--Footer Links-->
+          <div class="container">
+            <div class="row">
+
+              <!--First column-->
+              <div class="col-sm-6">
+                <h5 class="title">G48</h5>
+                <p>This website represents a project for the Garage48 hackathon.</p>
+              </div>
+              <!--/.First column-->
+
+              <!--Second column-->
+              <div class="col-sm-6">
+                <h5 class="title">Links</h5>
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Contacts</a></li>
+                </ul>
+              </div>
+              <!--/.Second column-->
+            </div>
+          </div>
+          <!--/.Footer Links-->
+
+          <!--Copyright-->
+          <div class="footer-copyright">
+            <div class="container-fluid">
+              © 2018 Copyright: <a href="http://localhost:4200/"> g48 </a>
+            </div>
+          </div>
+          <!--/.Copyright-->
+        </footer>
+        <!--/.Footer-->
+      </div>
+      <div *ngIf="!isLoggedIn()" class="col-sm-12" style="padding: 0;">
+        <!--Footer-->
         <footer class="page-footer blue center-on-small-only">
 
           <!--Footer Links-->
@@ -88,14 +116,14 @@
             <div class="row">
 
               <!--First column-->
-              <div class="col-md-6">
+              <div class="col-sm-6">
                 <h5 class="title">G48</h5>
                 <p>This website represents a project for the Garage48 hackathon.</p>
               </div>
               <!--/.First column-->
 
               <!--Second column-->
-              <div class="col-md-6">
+              <div class="col-sm-6">
                 <h5 class="title">Links</h5>
                 <ul>
                   <li><a href="#">Home</a></li>
@@ -121,5 +149,3 @@
   </div>
 </main>
 <!--/Main layout-->
-
-
