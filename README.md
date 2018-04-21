@@ -1,4 +1,4 @@
-# Tw2018
+# Garage48 hackathon project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
 
