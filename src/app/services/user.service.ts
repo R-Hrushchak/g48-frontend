@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Http } from '@angular/http';
 import { User } from '../entities/user';
+import { AuthHttpService } from './auth-http.service';
 
 @Injectable()
 export class UserService {
 
   private ApiEndPointUrl = environment.apiEndpointUrl + 'user';
 
-  constructor(public http: Http) {
+  constructor(public http: AuthHttpService) {
   }
 
   getUsers(): Promise<User[]> {

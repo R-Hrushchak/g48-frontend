@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Http } from '@angular/http';
 import { EncryptedFile } from '../entities/encrypted-file';
+import { AuthHttpService } from './auth-http.service';
 
 @Injectable()
 export class FileService {
 
   private ApiEndPointUrl = environment.apiEndpointUrl + 'file';
 
-  constructor(public http: Http) {
+  constructor(public http: AuthHttpService) {
   }
 
   getFiles(): Promise<EncryptedFile[]> {
