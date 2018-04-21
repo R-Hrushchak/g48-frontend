@@ -67,7 +67,7 @@ export class CryptoService {
 
       return crypto.subtle.exportKey('jwk', privateKey)
         .then(function (exportedPrivateKey) {
-          window.crypto.subtle.encrypt(
+          return window.crypto.subtle.encrypt(
             {
               name: 'AES-CBC',
               iv: window.crypto.getRandomValues(new Uint8Array(16)),
@@ -76,7 +76,7 @@ export class CryptoService {
             stringToArrayBuffer(JSON.stringify(exportedPrivateKey))
           )
             .then(function (encrypted) {
-              return arrayBufferToString(encrypted);
+              return arrayBufferToString(encrypted).valueOf();
             });
         });
     });
