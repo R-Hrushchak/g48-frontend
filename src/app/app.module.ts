@@ -15,11 +15,14 @@ import { FilesIncomingComponent } from './files-incoming/files-incoming.componen
 import { FilesOutgoingComponent } from './files-outgoing/files-outgoing.component';
 import { AuthHttpService } from './services/auth-http.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent, UserProfileComponent, FilesIncomingComponent, FilesOutgoingComponent
+    AppComponent, LoginComponent, UserProfileComponent, FilesIncomingComponent, FilesOutgoingComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -34,7 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [AuthHttpService, UserService, FileService],
+  providers: [AuthHttpService, AuthService, AuthGuardService, UserService, FileService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
