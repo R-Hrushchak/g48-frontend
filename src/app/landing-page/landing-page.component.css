@@ -6,6 +6,11 @@
   background-size: cover;
 }
 
+/* .text--size::before {
+  width: 130px;
+  height: 130px;
+} */
+
 .jumbotron {
   color: #fff;
   font-family: 'Roboto', sans-serif;
@@ -48,6 +53,14 @@
 .logo {
     color: #3B9DFF;
     font-size: 200px;
+}
+
+.fa-5 {
+  font-size: 7em;
+}
+
+.fa-6 {
+    font-size: 18em;
 }
 
 .navbar {

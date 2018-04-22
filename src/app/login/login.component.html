@@ -1,16 +1,17 @@
-<div class="container">
+<div id="inner" class="container">
   <h1>Login</h1>
+  <hr class="mb-5">
   <div class="row">
     <div class="col-sm">
       <form role="form" (submit)="login($event, username.value, password.value)">
         <div class="form-group">
-          <label for="username">Username</label>
-          <input type="email" class="form-control" #username id="username" aria-describedby="emailHelp"
-                 placeholder="Enter username">
+          <label for="username mb-0">Username</label>
+          <input type="email" class="form-control mt-0" #username id="username" aria-describedby="emailHelp"
+                 placeholder="">
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" #password id="password" placeholder="Enter password">
+          <label for="password mb-0">Password</label>
+          <input type="password" class="form-control mt-0" #password id="password" placeholder="">
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
       </form>
