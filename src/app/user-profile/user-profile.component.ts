@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CryptoService } from '../services/crypto.service';
@@ -22,7 +21,7 @@ export class UserProfileComponent implements OnInit {
               private cryptoService: CryptoService,
               private privateKeyService: PrivateKeyService,
               private publicKeyService: PublicKeyService,
-              private router: Router, private fb: FormBuilder) {
+              private fb: FormBuilder) {
     this.createForm();
   }
 
@@ -39,12 +38,28 @@ export class UserProfileComponent implements OnInit {
   }
 
   parseKeyPair(keyPair: CryptoKeyPair) {
+    const pbService = this.publicKeyService;
+    const pvService = this.publicKeyService;
     crypto.subtle.exportKey('jwk', keyPair.publicKey)
-      .then(key => this.publicKeyService.createEncryptionKey({key: JSON.stringify(key)}));
+      .then(function (key) {
+        localStorage.setItem('public_key', JSON.stringify(key)); // remove later
+
+        pbService.createEncryptionKey({key: JSON.stringify(key)});
+      });
 
     this.cryptoService.protectKey(keyPair.privateKey, this.encryptionPassword)
-      .then(keys => this.privateKeyService
-        .createEncryptionKey({key: JSON.stringify(keys.protectedPrivateKey), aes_key: JSON.stringify(keys.aesKey)}));
+      .then(function (keys) {
+          crypto.subtle.exportKey('jwk', keyPair.privateKey)
+            .then(function (key) {
+              localStorage.setItem('private_key', JSON.stringify(key));
+            });
+
+          pvService.createEncryptionKey({
+            key: JSON.stringify(keys.protectedPrivateKey),
+            aes_key: JSON.stringify(keys.aesKey)
+          });
+        }
+      );
   }
 
   ngOnInit() {

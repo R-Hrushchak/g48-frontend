@@ -17,11 +17,11 @@ export class CryptoService {
     });
   }
 
-  private ab2str(buf: ArrayBuffer): String {
+  ab2str(buf: ArrayBuffer): String {
     return String.fromCharCode.apply(null, new Uint16Array(buf));
   }
 
-  private str2ab(str: String): ArrayBuffer {
+  str2ab(str: String): ArrayBuffer {
     const buf = new ArrayBuffer(str.length * 2); // 2 key for each char
     const bufView = new Uint16Array(buf);
     for (let i = 0, strLen = str.length; i < strLen; i++) {
