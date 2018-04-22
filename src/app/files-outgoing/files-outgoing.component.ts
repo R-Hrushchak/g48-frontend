@@ -30,7 +30,7 @@ export class FilesOutgoingComponent implements OnInit {
     userService.getUser(recipientName).then(function (recipient) {
       const publicKeyJSON = JSON.parse(recipient.public_key.key).key;
       crypto.subtle.importKey('jwk',
-        cryptoService.str2ab(publicKeyJSON),
+        JSON.parse(publicKeyJSON),
         {
           name: 'RSA-OAEP',
           hash: {name: 'SHA-256'},

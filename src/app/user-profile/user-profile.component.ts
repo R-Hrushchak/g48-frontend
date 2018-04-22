@@ -42,8 +42,6 @@ export class UserProfileComponent implements OnInit {
     const pvService = this.privateKeyService;
     crypto.subtle.exportKey('jwk', keyPair.publicKey)
       .then(function (key) {
-        localStorage.setItem('public_key', JSON.stringify(key)); // remove later
-
         pbService.createEncryptionKey({key: JSON.stringify(key)});
       });
 
