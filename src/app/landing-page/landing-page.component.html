@@ -1,82 +1,85 @@
-<mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg navbar-light white scrolling-navbar double-nav"
-            [containerInside]="false">
-
-  <navlinks>
-    <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav">
-      <li *ngIf="isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/app/login']">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <nav class="navbar navbar-default fixed-top navbar-expand-sm"
+       data-spy="affi"
+       style="border-bottom: 0.5px solid #3B9DFF;">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">
+      <img href="#" class="image__logo" src="assets/images/logo.jpg" height="10%" width="10%">
+    </a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#features">FEATURES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about">ABOUT</a>
+      </li>
+      <li class="nav-item a-nav-link ml-5" [routerLink]="['/app/login']">
         <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
           <span class="clearfix d-none d-sm-inline-block">Sign in</span>
         </a>
       </li>
-      <li *ngIf="isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/app/profile']">
-        <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
-          <span class="clearfix d-none d-sm-inline-block">Account</span>
-        </a>
-      </li>
-      <li *ngIf="isLoggedIn()" class="nav-item a-nav-link">
-        <a (click)="logout()" class="nav-link waves-light" mdbRippleRadius><i class="fa fa-sign-out"></i>
-          <span class="clearfix d-none d-sm-inline-block">Logout</span>
-        </a>
-      </li>
     </ul>
-  </navlinks>
-</mdb-navbar>
+  </nav>
 
+  <div class="jumbotron image text-center">
+    <h1>Infallible end-to-end encryption <br> for your sensitive data</h1>
+    <form>
+      <button id="button" type="button" class="btn btn-primary mt-4">Get for your company</button>
+      <button id="button" type="button" class="btn btn-primary mt-4">User sign in</button>
+    </form>
+  </div>
 
-<div class="jumbotron image text-center">
-  <h1>One-of-a-kind, <br> zero fees virtual broker</h1>
-  <form>
-    <button id="button" type="button" class="btn btn-primary mt-4">..............</button>
-  </form>
-</div>
-
-<!-- Icons Grid -->
-<section class="features-icons text-center testimonials bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-          <div class="mb-5">
-            <img src="assets/images/money.svg" width="130" height="130">
+  <!-- Icons Grid -->
+  <section id="features" class="features-icons text-center testimonials bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="mb-5">
+              <img src="assets/images/money.svg" width="130" height="130">
+            </div>
+            <h3 class="mb-3">Simple</h3>
+            <p class="lead mb-0" style="line-height: normal;">Plug and play for the company, easy to use for the customer</p>
           </div>
-          <h3 class="mb-3">No fees</h3>
-          <p class="lead mb-0" style="line-height: normal;">You pay zero fees for all of your transactions</p>
         </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-          <div class="mb-5">
-            <img src="assets/images/profits.svg" width="130" height="130">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="mb-5">
+              <img src="assets/images/profits.svg" width="130" height="130">
+            </div>
+            <h3 class="mb-3">No middleman</h3>
+            <p class="lead mb-0" style="line-height: normal;">Data in server is encrypted and only the people hold keys to their own data</p>
           </div>
-          <h3 class="mb-3">Smooth investments</h3>
-          <p class="lead mb-0" style="line-height: normal;">You choose how much money to invest</p>
         </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-          <div class="mb-5">
-            <img src="assets/images/presentation.svg" width="130" height="130">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="mb-5">
+              <img src="assets/images/presentation.svg" width="130" height="130">
+            </div>
+            <h3 class="mb-3">GDPR compliance</h3>
+            <p class="lead mb-0" style="line-height: normal;">Save millions on fines - secure and disclose data safely with one easy service</p>
           </div>
-          <h3 class="mb-3">Stocks news</h3>
-          <p class="lead mb-0" style="line-height: normal;">Get the info easily about the stocks you invested into</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-<!-- Container (About Section) -->
-<section class="testimonials">
-  <div id="about" class="container">
-    <div class="row">
-      <div class="col-sm-8">
-        <h3 class="mb-5">About company</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </div>
-      <div class="col-sm-4 inner__center">
-        <i class="fa fa-free-code-camp logo" aria-hidden="true"></i>
+  <!-- Container (About Section) -->
+  <section class="testimonials">
+    <div id="about" class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h3 class="mb-5">About company</h3>
+          <p>We use a symmetric public and private key system built on the secure and efficient API recommended by the W3 Consortium.
+            We only store the public keys and the user-encrypted private keys.
+            This means that even stealing our entire database will not grant access to any data: all data is only accessible by their owners.
+            The important keys to data - user passwords - are never stored, they can only be seen by the people who own the data and companies who have collected the data.</p>
+        </div>
+        <div class="col-sm-4 inner__center">
+          <i class="fa fa-free-code-camp logo" aria-hidden="true"></i>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</body>

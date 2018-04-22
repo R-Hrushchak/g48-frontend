@@ -1,9 +1,7 @@
 <!--Double navigation-->
 <header>
-  <!-- Navbar -->
   <mdb-navbar SideClass="navbar fixed-top navbar-toggleable-md navbar-expand-lg navbar-light white scrolling-navbar double-nav"
               [containerInside]="false">
-
     <navlinks>
       <ul class="nav navbar-nav nav-flex-icons ml-auto ie-double-nav">
         <li *ngIf="!isLoggedIn()" class="nav-item a-nav-link" [routerLink]="['/app/login']">
@@ -24,7 +22,6 @@
       </ul>
     </navlinks>
   </mdb-navbar>
-  <!--/. Navbar -->
 </header>
 <!--/.Double navigation-->
 
