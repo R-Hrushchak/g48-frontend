@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FileService } from '../services/file.service';
 import { UserService } from '../services/user.service';
 import { CryptoService } from '../services/crypto.service';
+import { User } from '../entities/user';
 
 @Component({
   selector: 'app-files-outgoing',
@@ -12,7 +13,7 @@ import { CryptoService } from '../services/crypto.service';
 
 export class FilesOutgoingComponent implements OnInit {
 
-  recipientId: string;
+  recipient: string;
 
   data: string;
 
@@ -20,38 +21,39 @@ export class FilesOutgoingComponent implements OnInit {
   }
 
   sendData() {
+    const fileService = this.fileService;
+    const userService = this.userService;
     const cryptoService = this.cryptoService;
-    const dataToEncrypt = this.data;
-    // getPublicKey
-    const recipientPublicKeyStored = localStorage.getItem('public_key'); // replace with Rest API taken by username
-    if (recipientPublicKeyStored === null) {
-      return console.log('cant get public key from storage');
-    }
+    const recipientName = this.recipient;
+    const data = this.data;
 
-    const recipientPublicKey = JSON.parse(recipientPublicKeyStored);
-
-    crypto.subtle.importKey('jwk',
-      recipientPublicKey,
-      {
-        name: 'RSA-OAEP',
-        hash: {name: 'SHA-256'},
-      },
-      false,
-      ['encrypt']
-    ).then(function (publicKey) {
-      crypto.subtle.encrypt({
+    userService.getUser(recipientName).then(function (recipient) {
+      const publicKeyJSON = JSON.parse(recipient.public_key.key).key;
+      crypto.subtle.importKey('jwk',
+        cryptoService.str2ab(publicKeyJSON),
+        {
           name: 'RSA-OAEP',
+          hash: {name: 'SHA-256'},
         },
-        publicKey,
-        cryptoService.str2ab(dataToEncrypt),
-      ).then(function (encryptedData) {
-        console.log(cryptoService.ab2str(encryptedData));
+        false,
+        ['encrypt']
+      ).then(function (publicKey) {
+        console.log(publicKey);
+        crypto.subtle.encrypt({
+            name: 'RSA-OAEP',
+          },
+          publicKey,
+          cryptoService.str2ab(data),
+        ).then(function (encryptedData) {
+          const dataToStore = cryptoService.ab2str(encryptedData);
+          fileService.createEncryptedFile(recipient.id, {message: JSON.stringify(dataToStore)});
+        });
       });
     });
   }
 
   ngOnInit() {
-    this.recipientId = 'test';
+    this.recipient = 'test';
     this.data = 'Information to save';
   }
 

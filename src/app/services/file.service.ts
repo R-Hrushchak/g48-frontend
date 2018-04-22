@@ -6,7 +6,7 @@ import { AuthHttpService } from './auth-http.service';
 @Injectable()
 export class FileService {
 
-  private ApiEndPointUrl = environment.apiEndpointUrl + 'file';
+  private ApiEndPointUrl = environment.apiEndpointUrl + 'contents';
 
   constructor(public http: AuthHttpService) {
   }
@@ -25,8 +25,8 @@ export class FileService {
       .catch(this.handleError);
   }
 
-  createEncryptedFile(file: EncryptedFile): Promise<EncryptedFile> {
-    return this.http.post(this.ApiEndPointUrl, JSON.stringify(file))
+  createEncryptedFile(recipientId: number, file: EncryptedFile): Promise<EncryptedFile> {
+    return this.http.post(this.ApiEndPointUrl, {recipient_id: recipientId, message: JSON.stringify(file)})
       .toPromise()
       .then(() => file)
       .catch(this.handleError);

@@ -39,7 +39,7 @@ export class UserProfileComponent implements OnInit {
 
   parseKeyPair(keyPair: CryptoKeyPair) {
     const pbService = this.publicKeyService;
-    const pvService = this.publicKeyService;
+    const pvService = this.privateKeyService;
     crypto.subtle.exportKey('jwk', keyPair.publicKey)
       .then(function (key) {
         localStorage.setItem('public_key', JSON.stringify(key)); // remove later

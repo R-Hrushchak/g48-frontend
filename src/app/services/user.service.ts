@@ -18,7 +18,7 @@ export class UserService {
       .catch(this.handleError);
   }
 
-  getUser(username: string): Promise<User> {
+  getUser(username: string) {
     return this.http.get(this.ApiEndPointUrl + '/' + username)
       .toPromise()
       .then(response => response.json() as User)
