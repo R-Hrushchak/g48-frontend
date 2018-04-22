@@ -4,15 +4,15 @@
 <div>
 
   <div id="idWrapper">
-    ID code of the receiving patient:<br>
-    <input type="text" class="form-control" id="id">
+    Receiving patient:<br>
+    <input [(ngModel)]="recipient" type="text" class="form-control" id="id">
   </div>
 
   <div id="informationWrapper">
     Copy the patient's information here:<br>
-    <textarea id="information"></textarea>
+    <textarea [(ngModel)]="data" id="information"></textarea>
   </div>
 
-  <button type="button" class="btn btn-primary" id="sendDataButton">Send data</button>
+  <button (click)="sendData()" type="button" class="btn btn-primary" id="sendDataButton">Send data</button>
 
 </div>

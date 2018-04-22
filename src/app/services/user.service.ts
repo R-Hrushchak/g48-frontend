@@ -6,7 +6,7 @@ import { AuthHttpService } from './auth-http.service';
 @Injectable()
 export class UserService {
 
-  private ApiEndPointUrl = environment.apiEndpointUrl + 'user';
+  private ApiEndPointUrl = environment.apiEndpointUrl + 'users';
 
   constructor(public http: AuthHttpService) {
   }
@@ -18,8 +18,8 @@ export class UserService {
       .catch(this.handleError);
   }
 
-  getUser(id: number | string): Promise<User> {
-    return this.http.get(this.ApiEndPointUrl + '/' + id)
+  getUser(username: string) {
+    return this.http.get(this.ApiEndPointUrl + '/' + username)
       .toPromise()
       .then(response => response.json() as User)
       .catch(this.handleError);
