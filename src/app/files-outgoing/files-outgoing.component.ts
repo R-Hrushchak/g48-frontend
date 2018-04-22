@@ -46,7 +46,8 @@ export class FilesOutgoingComponent implements OnInit {
           cryptoService.str2ab(data),
         ).then(function (encryptedData) {
           const dataToStore = cryptoService.ab2str(encryptedData);
-          fileService.createEncryptedFile(recipient.id, {message: JSON.stringify(dataToStore)});
+          const recipientId = recipient.user.id;
+          fileService.createEncryptedFile(recipientId, {message: JSON.stringify(dataToStore)});
         });
       });
     });
