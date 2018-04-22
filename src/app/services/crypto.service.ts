@@ -22,7 +22,7 @@ export class CryptoService {
   }
 
   private str2ab(str: String): ArrayBuffer {
-    const buf = new ArrayBuffer(str.length * 2); // 2 bytes for each char
+    const buf = new ArrayBuffer(str.length * 2); // 2 key for each char
     const bufView = new Uint16Array(buf);
     for (let i = 0, strLen = str.length; i < strLen; i++) {
       bufView[i] = str.charCodeAt(i);
@@ -30,7 +30,7 @@ export class CryptoService {
     return buf;
   }
 
-  getKeyAES(key: CryptoKey, password: String) {
+  getKeyAES(password: String) {
     const stringToArrayBuffer = this.str2ab;
 
     return window.crypto.subtle.importKey(
@@ -58,14 +58,14 @@ export class CryptoService {
       });
   }
 
-  protectKey(privateKey: CryptoKey, password) {
+  protectKey(keyToProtect: CryptoKey, password) {
     const stringToArrayBuffer = this.str2ab;
     const arrayBufferToString = this.ab2str;
 
-    return this.getKeyAES(privateKey, password).then(function (aesKey) {
+    return this.getKeyAES(password).then(function (aesKey) {
       // this.cryptoService.crypto.subtle.exportKey('jwk', aesKey)
 
-      return crypto.subtle.exportKey('jwk', privateKey)
+      return crypto.subtle.exportKey('jwk', keyToProtect)
         .then(function (exportedPrivateKey) {
           return window.crypto.subtle.encrypt(
             {
@@ -75,8 +75,11 @@ export class CryptoService {
             aesKey,
             stringToArrayBuffer(JSON.stringify(exportedPrivateKey))
           )
-            .then(function (encrypted) {
-              return arrayBufferToString(encrypted).valueOf();
+            .then(function (encryptedKey) {
+              return crypto.subtle.exportKey('jwk', aesKey)
+                .then(function (exportedAESKey) {
+                  return {protectedPrivateKey: arrayBufferToString(encryptedKey).valueOf(), aesKey: exportedAESKey};
+                });
             });
         });
     });

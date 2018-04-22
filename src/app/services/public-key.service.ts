@@ -7,7 +7,7 @@ import { EncryptionKey } from '../entities/encryption-key';
 @Injectable()
 export class PublicKeyService {
 
-  private ApiEndPointUrl = environment.apiEndpointUrl + 'key/public';
+  private ApiEndPointUrl = environment.apiEndpointUrl + 'public_keys';
 
   constructor(public http: AuthHttpService) {
   }
@@ -20,14 +20,14 @@ export class PublicKeyService {
   }
 
   createEncryptionKey(key: EncryptionKey): Promise<EncryptionKey> {
-    return this.http.post(this.ApiEndPointUrl, JSON.stringify(key))
+    return this.http.post(this.ApiEndPointUrl, {public_key: {key: JSON.stringify(key)}})
       .toPromise()
       .then(() => key)
       .catch(this.handleError);
   }
 
   updateEncryptionKey(key: EncryptionKey): Promise<EncryptionKey> {
-    return this.http.put(this.ApiEndPointUrl + '/' + key.id, JSON.stringify(key))
+    return this.http.put(this.ApiEndPointUrl + '/' + key.id, {public_key: {key: JSON.stringify(key)}})
       .toPromise()
       .then(() => key)
       .catch(this.handleError);

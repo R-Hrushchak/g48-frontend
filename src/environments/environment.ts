@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiEndpointUrl: 'http://demo1497379.mockable.io/api/'
+  apiEndpointUrl: 'http://endcrypted.com/'
 };

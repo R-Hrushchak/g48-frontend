@@ -1,4 +1,5 @@
 export class EncryptionKey {
   id?: number;
-  bytes: string;
+  key: string;
+  aes_key?: string;
 }

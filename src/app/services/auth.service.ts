@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams, Response } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Rx';
 
@@ -7,19 +7,15 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class AuthService {
 
-  private ApiEndPointUrl = environment.apiEndpointUrl + 'login';
+  private ApiEndPointUrl = environment.apiEndpointUrl + 'sessions';
 
   constructor(public http: Http) {
   }
 
   login(username, password): Observable<any> {
 
-    let params: URLSearchParams = new URLSearchParams();
-    params.set('username', username);
-    params.set('password', password);
-
     return this.http.post(this.ApiEndPointUrl, {
-      search: params
+      session: {'username': username, 'password': password}
     }).map(this.handleData)
       .catch(this.handleError);
   }
