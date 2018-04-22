@@ -10,7 +10,7 @@ import { MainComponent } from './main/main.component';
 
 const appRoutes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: LandingPageComponent
   },
   {

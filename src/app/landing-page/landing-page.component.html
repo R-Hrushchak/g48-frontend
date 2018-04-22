@@ -1,1 +1,85 @@
-<p>landing page</p>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <nav class="navbar navbar-default fixed-top navbar-expand-sm"
+       data-spy="affi"
+       style="border-bottom: 0.5px solid #3B9DFF;">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">
+      <img href="#" class="image__logo" src="assets/images/logo.jpg" height="10%" width="10%">
+    </a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#features">FEATURES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about">ABOUT</a>
+      </li>
+      <li class="nav-item a-nav-link ml-5" [routerLink]="['/app/login']">
+        <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
+          <span class="clearfix d-none d-sm-inline-block">Sign in</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="jumbotron image text-center">
+    <h1>Infallible end-to-end encryption <br> for your sensitive data</h1>
+    <form>
+      <button id="button" type="button" class="btn btn-primary mt-4">Get for your company</button>
+      <button id="button" type="button" class="btn btn-primary mt-4">User sign in</button>
+    </form>
+  </div>
+
+  <!-- Icons Grid -->
+  <section id="features" class="features-icons text-center testimonials bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="mb-5">
+              <img src="assets/images/money.svg" width="130" height="130">
+            </div>
+            <h3 class="mb-3">Simple</h3>
+            <p class="lead mb-0" style="line-height: normal;">Plug and play for the company, easy to use for the customer</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="mb-5">
+              <img src="assets/images/profits.svg" width="130" height="130">
+            </div>
+            <h3 class="mb-3">No middleman</h3>
+            <p class="lead mb-0" style="line-height: normal;">Data in server is encrypted and only the people hold keys to their own data</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="mb-5">
+              <img src="assets/images/presentation.svg" width="130" height="130">
+            </div>
+            <h3 class="mb-3">GDPR compliance</h3>
+            <p class="lead mb-0" style="line-height: normal;">Save millions on fines - secure and disclose data safely with one easy service</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Container (About Section) -->
+  <section class="testimonials">
+    <div id="about" class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <h3 class="mb-5">About company</h3>
+          <p>We use a symmetric public and private key system built on the secure and efficient API recommended by the W3 Consortium.
+            We only store the public keys and the user-encrypted private keys.
+            This means that even stealing our entire database will not grant access to any data: all data is only accessible by their owners.
+            The important keys to data - user passwords - are never stored, they can only be seen by the people who own the data and companies who have collected the data.</p>
+        </div>
+        <div class="col-sm-4 inner__center">
+          <i class="fa fa-free-code-camp logo" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>

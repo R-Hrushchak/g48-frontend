@@ -1,0 +1,74 @@
+.image {
+  background: linear-gradient(rgba(0, 0, 0, 0.61),
+                              rgba(0, 0, 0, 0.61)),
+              url('assets/images/back.jpg') no-repeat center center;
+  border: 0;
+  background-size: cover;
+}
+
+.jumbotron {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  padding: 250px 25px;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+.jumbotron h1 {
+  font-size: 46px !important;
+}
+
+.features-icons .features-icons-item {
+  max-width: 20rem;
+}
+.features-icons .features-icons-item .features-icons-icon {
+  height: 7rem;
+}
+.features-icons .features-icons-item .features-icons-icon img {
+  font-size: 4.5rem;
+}
+.features-icons .features-icons-item:hover .features-icons-icon img {
+  font-size: 5rem;
+}
+
+.testimonials {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.testimonials .testimonial-item {
+  max-width: 18rem;
+}
+.testimonials .testimonial-item img {
+  max-width: 12rem;
+}
+
+.inner__center {
+  text-align: center;
+}
+
+.logo {
+    color: #3B9DFF;
+    font-size: 200px;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #fff;
+    z-index: 9999;
+    border: 0;
+    font-size: 14px !important;
+    line-height: 1.42857143 !important;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #3B9DFF !important;
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #3B9DFF !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #3B9DFF !important;
+}

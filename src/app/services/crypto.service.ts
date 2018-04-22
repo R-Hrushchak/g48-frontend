@@ -32,10 +32,9 @@ export class CryptoService {
 
   getKeyAES(password: String) {
     const stringToArrayBuffer = this.str2ab;
-
     return window.crypto.subtle.importKey(
       'raw',
-      stringToArrayBuffer(password),
+      this.str2ab(password),
       {
         name: 'PBKDF2'
       },
