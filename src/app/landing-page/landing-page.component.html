@@ -4,7 +4,7 @@
        style="border-bottom: 0.5px solid #3B9DFF;">
     <!-- Brand -->
     <a class="navbar-brand" href="#">
-      <img href="#" src="assets/images/endcrypted2.svg" height="100%" width="100%">
+      <img href="#" src="assets/images/endcrypted5.svg" height="100%" width="100%">
     </a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
@@ -12,6 +12,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#about">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contact">CONTACT</a>
       </li>
       <li class="nav-item a-nav-link ml-5" [routerLink]="['/app/login']">
         <a class="nav-link waves-light" mdbRippleRadius><i class="fa fa-user"></i>
@@ -22,10 +25,10 @@
   </nav>
 
   <div class="jumbotron image text-center">
-    <h1>Infallible end-to-end encryption <br> for your sensitive data</h1>
+    <h1>Foolproof end-to-end encryption <br> for your sensitive data</h1>
     <form>
-      <button id="button" type="button" class="btn btn-primary mt-4">Get for your company</button>
-      <button id="button" type="button" class="btn btn-primary mt-4">User sign in</button>
+      <button id="button" type="button" class="btn btn-outline-primary mt-4">Get for your company</button>
+      <button id="button" type="button" class="btn btn-primary mt-4" [routerLink]="['/app/login']">User sign in</button>
     </form>
   </div>
 
@@ -36,16 +39,18 @@
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
             <div class="mb-5">
-              <img src="assets/images/money.svg" width="130" height="130">
+              <!-- <img src="assets/images/money.svg" width="130" height="130"> -->
+              <i class="fa fa-plug fa-5" aria-hidden="true" style="color: #3B9DFF;"></i>
             </div>
-            <h3 class="mb-3">Simple</h3>
+            <h3 class="mb-3">Pluggable</h3>
             <p class="lead mb-0" style="line-height: normal;">Plug and play for the company, easy to use for the customer</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
             <div class="mb-5">
-              <img src="assets/images/profits.svg" width="130" height="130">
+              <!-- <img src="assets/images/profits.svg" width="130" height="130"> -->
+              <i class="fa fa-handshake-o fa-5" aria-hidden="true" style="color: #3B9DFF;"></i>
             </div>
             <h3 class="mb-3">No middleman</h3>
             <p class="lead mb-0" style="line-height: normal;">Data in server is encrypted and only the people hold keys to their own data</p>
@@ -54,7 +59,8 @@
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-0 mb-lg-3">
             <div class="mb-5">
-              <img src="assets/images/presentation.svg" width="130" height="130">
+              <!-- <img src="assets/images/presentation.svg" width="130" height="130"> -->
+              <i class="fa fa-check-square-o fa-5" aria-hidden="true" style="color: #3B9DFF;"></i>
             </div>
             <h3 class="mb-3">GDPR compliance</h3>
             <p class="lead mb-0" style="line-height: normal;">Save millions on fines - secure and disclose data safely with one easy service</p>
@@ -69,17 +75,71 @@
   <section class="testimonials">
     <div id="about" class="container">
       <div class="row">
-        <div class="col-sm-8">
-          <h3 class="mb-5">About company</h3>
+        <div class="col-sm-6 pr-5">
+          <h3 class="mb-5">Our solution</h3>
           <p>We use a symmetric public and private key system built on the secure and efficient API recommended by the W3 Consortium.
             We only store the public keys and the user-encrypted private keys.
-            This means that even stealing our entire database will not grant access to any data: all data is only accessible by their owners.
+            <br> <br> This means that even stealing our entire database will not grant access to any data: all data is only accessible by their owners.
             The important keys to data - user passwords - are never stored, they can only be seen by the people who own the data and companies who have collected the data.</p>
         </div>
-        <div class="col-sm-4 inner__center">
-          <i class="fa fa-free-code-camp logo" aria-hidden="true"></i>
+        <div class="col-sm-6 inner__center pl-5">
+          <img href="#" src="assets/images/diagram2.png" height="100%" width="100%">
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Container (Contact Section) -->
+  <section class="testimonials bg-light">
+    <div id="contact" class="container">
+      <h2 class="text-center mb-5">Contact</h2>
+      <div class="row">
+        <div class="col-sm-5">
+          <p>Contact us and we'll get back to you within 24 hours.</p>
+          <p><i class="fa fa-map-marker" aria-hidden="true"></i> Tallinn, Estonia</p>
+          <p><i class="fa fa-envelope-o" aria-hidden="true"></i> endcrypted@gmail.com</p>
+        </div>
+        <div class="col-sm-7 slideanim">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+            </div>
+          </div>
+          <textarea class="form-control" id="comments" name="comments" placeholder=" Comment" rows="5"></textarea><br>
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <button class="btn btn-primary custom_primary" type="submit"
+                      data-toggle="modal" data-target="#exampleModal">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Message successfully sent!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container text-center testimonials">
+    <a href="#myPage" title="To Top">
+      <i class="fa fa-chevron-up" aria-hidden="true" style="font-size: 30px;"></i>
+    </a>
+  </footer>
+
 </body>
