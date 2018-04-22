@@ -11,10 +11,10 @@ export class FileService {
   constructor(public http: AuthHttpService) {
   }
 
-  getFiles(): Promise<EncryptedFile[]> {
+  getFiles() {
     return this.http.get(this.ApiEndPointUrl)
       .toPromise()
-      .then(response => response.json() as EncryptedFile[])
+      .then(response => response.json())
       .catch(this.handleError);
   }
 

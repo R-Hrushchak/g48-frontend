@@ -5,30 +5,18 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Description</th>
       <th>Sender</th>
       <th>Sent date</th>
       <th>Data</th>
+      <th>Data (encrypted)</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Medical History</td>
+    <tr *ngFor="let file of files">
       <td>Jane Doe</td>
       <td>2018-04-19</td>
-      <td><a href="#!">View</a></td>
-    </tr>
-    <tr>
-      <td>Vaccination Schedule</td>
-      <td>Jane Doe</td>
-      <td>2018-04-19</td>
-      <td><a href="#!">View</a></td>
-    </tr>
-    <tr>
-      <td>Billing history</td>
-      <td>North-Tallinn Regional Hospital</td>
-      <td>2018-04-03</td>
-      <td><a href="#!">View</a></td>
+      <td>{{file.message}}</td>
+      <td>{{file.message}}</td>
     </tr>
     </tbody>
   </table>
