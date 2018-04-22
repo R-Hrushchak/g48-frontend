@@ -17,7 +17,41 @@ export class FilesIncomingComponent implements OnInit {
   }
 
   private handleData(file) {
-    return JSON.parse(file.attributes.message);
+    let parsedJSON = JSON.parse(file.attributes.message);
+    parsedJSON['message_decrypted'] = 'Information to save';
+
+    parsedJSON['message'] = parsedJSON['message'].substr(1, parsedJSON['message'].length - 2);
+
+    // decrypt message
+
+    const fileService = this.fileService;
+    const userService = this.userService;
+    const cryptoService = this.cryptoService;
+
+    const privateKeyJSON = localStorage.getItem('private_key');
+
+    crypto.subtle.importKey('jwk',
+      JSON.parse(privateKeyJSON),
+      {
+        name: 'RSA-OAEP',
+        hash: {name: 'SHA-256'},
+      },
+      false,
+      ['decrypt']
+    ).then(function (privateKey) {
+      crypto.subtle.decrypt({
+          name: 'RSA-OAEP',
+        },
+        privateKey,
+        cryptoService.str2ab(parsedJSON['message'])
+      )
+        .then(function (result) {
+          console.log(cryptoService.ab2str(result));
+          parsedJSON['message_decrypted'] = result;
+        });
+    });
+
+    return parsedJSON;
   }
 
   setData(data: any[]) {
